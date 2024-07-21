@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const getCurrentMeal = () => {
+const getCurrentMeal = (): string => {
   const now = new Date();
   const hours = now.getHours();
   const minutes = now.getMinutes();
@@ -12,8 +12,8 @@ const getCurrentMeal = () => {
   return '야식';
 };
 
-const MealTime = () => {
-  const [meal, setMeal] = useState(getCurrentMeal());
+const MealTime: React.FC = () => {
+  const [meal, setMeal] = useState<string>(getCurrentMeal());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -26,7 +26,7 @@ const MealTime = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="text-4xl font-bold text-gray-800">
-      {meal} 고민될땐? 
+        {meal} 고민될땐? 
       </div>
     </div>
   );
